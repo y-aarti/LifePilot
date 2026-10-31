@@ -1,0 +1,27 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    match /users/{userId}/tasks/{taskId} {
+      function ownsTasks() {
+        return request.auth != null && request.auth.uid == userId;
+      }
+      allow read: if ownsTasks();
+      allow create: if ownsTasks()
+        && request.resource.data.keys().hasOnly(['area', 'title', 'description', 'dueDate', 'completed', 'createdAt'])
+        && request.resource.data.area in ['Health', 'Wealth', 'Career', 'Personal', 'Events']
+        && request.resource.data.title is string
+        && request.resource.data.description is string
+        && request.resource.data.completed is bool
+        && (request.resource.data.dueDate == null || request.resource.data.dueDate is string)
+        && request.resource.data.createdAt is timestamp;
+      allow update: if ownsTasks()
+        && request.resource.data.diff(resource.data).affectedKeys().hasOnly(['completed', 'title', 'description', 'dueDate', 'deleted'])
+        && request.resource.data.completed is bool
+        && request.resource.data.title is string
+        && request.resource.data.description is string
+        && (request.resource.data.dueDate == null || request.resource.data.dueDate is string)
+        && (!request.resource.data.diff(resource.data).affectedKeys().hasAny(['deleted']) || request.resource.data.deleted is bool);
+      allow delete: if ownsTasks();
+    }
+  }
+}

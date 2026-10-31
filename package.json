@@ -1,0 +1,44 @@
+{
+  "name": "lifepilot",
+  "version": "1.0.0",
+  "private": true,
+  "main": "expo-router/entry",
+  "scripts": {
+    "start": "expo start",
+    "web": "expo start --web",
+    "ios": "expo start --ios",
+    "android": "expo start --android"
+  },
+  "dependencies": {
+    "@expo/vector-icons": "^15.0.3",
+    "@react-native-async-storage/async-storage": "2.2.0",
+    "@react-navigation/bottom-tabs": "^7.3.10",
+    "@react-navigation/elements": "^2.3.8",
+    "@react-navigation/native": "^7.1.6",
+    "expo": "^58.0.21",
+    "expo-asset": "~58.0.19",
+    "expo-auth-session": "~58.0.16",
+    "expo-constants": "~58.0.14",
+    "expo-linking": "~58.0.15",
+    "expo-router": "~58.0.28",
+    "expo-status-bar": "~58.0.4",
+    "expo-web-browser": "~58.0.7",
+    "firebase": "^11.8.1",
+    "query-string": "^7.1.3",
+    "react": "19.3.0",
+    "react-dom": "19.3.0",
+    "react-native": "0.88.1",
+    "react-native-safe-area-context": "~5.10.1",
+    "react-native-screens": "~4.30.0",
+    "react-native-web": "~0.21.0"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.25.2",
+    "@types/react": "~19.3.0",
+    "babel-preset-expo": "~58.0.20",
+    "typescript": "~5.9.3"
+  },
+  "engines": {
+    "node": "^22.13.0 || ^24.3.0 || >=26.0.0"
+  }
+}
