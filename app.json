@@ -5,7 +5,10 @@
     "scheme": "daylight",
     "version": "1.0.0",
     "ios": {
-      "bundleIdentifier": "com.yaarti.daylight"
+      "bundleIdentifier": "com.yaarti.daylight",
+      "infoPlist": {
+        "ITSAppUsesNonExemptEncryption": false
+      }
     },
     "orientation": "portrait",
     "userInterfaceStyle": "light",
